@@ -1,4 +1,5 @@
 import style from './meetupid.module.css'
+//dummy data we will use  in this project
 const DUMMY_EVENTS = [
   {
     id: 'e1',
@@ -69,12 +70,13 @@ export async function getStaticPaths(){
 	  const paths = DUMMY_EVENTS2.map((el) => ({
 	    params: { meetupid: el.id.toString() },
 	  }))
-	  console.log(paths)
+	  
     return {
         paths, //indicates that no page needs be created at build time
         fallback: true //indicates the type of fallback
     }
 }
+//this will get the meetupid from url and will provide data as props in the component
 export async function getStaticProps(context){
 	const id = context.params.meetupid
 
